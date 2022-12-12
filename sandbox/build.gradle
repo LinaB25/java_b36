@@ -1,3 +1,12 @@
 apply plugin: 'java'
 apply plugin: 'application'
-mainClassName = "Prog"
+mainClassName = "ru.stqa.pft.sandbox.Prog"
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies{
+    testImplementation group: 'org.testng', name: 'testng', version: '6.9.0'
+}
