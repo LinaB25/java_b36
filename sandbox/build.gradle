@@ -8,5 +8,5 @@ repositories {
 }
 
 dependencies{
-    testImplementation group: 'org.testng', name: 'testng', version: '6.9.0'
+    implementation group: 'org.testng', name: 'testng', version: '7.3.0'
 }
