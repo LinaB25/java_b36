@@ -7,12 +7,12 @@
         <option name="delegatedBuild" value="true" />
         <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../addressbook-web-test" />
         <option name="gradleHome" value="$USER_HOME$/Gradle/gradle-7.6" />
         <option name="gradleJvm" value="#JAVA_HOME" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/../addressbook-web-test" />
           </set>
         </option>
       </GradleProjectSettings>
