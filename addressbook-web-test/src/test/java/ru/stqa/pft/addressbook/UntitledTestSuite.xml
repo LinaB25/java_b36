@@ -1,0 +1,9 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name = "UntitledTestSuite">
+<test name = "GroupCreationTests">
+    <classes>
+        <class name = "com.example.UntitledTestSuite.GroupCreationTests"/>
+    </classes>
+</test>
+</suite>
