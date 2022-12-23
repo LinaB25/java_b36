@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.Browser;
 
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
@@ -22,11 +23,11 @@ public class ApplicationManager {
     }
 
     public void init() {
-        if(browser == Browser.FIREFOX.browserName()){
+        if(Objects.equals(browser, Browser.FIREFOX.browserName())){
             wd = new FirefoxDriver(new FirefoxOptions().setBinary("c:\\Program Files\\Mozilla Firefox\\firefox.exe"));
-        } else if (browser == Browser.CHROME.browserName()){
+        } else if (Objects.equals(browser, Browser.CHROME.browserName())){
             wd = new ChromeDriver();
-        } else if (browser == Browser.IE.browserName()) {
+        } else if (Objects.equals(browser, Browser.IE.browserName())) {
             wd = new InternetExplorerDriver();
         }
 
