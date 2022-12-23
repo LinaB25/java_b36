@@ -8,4 +8,5 @@ repositories {
 dependencies{
     implementation 'org.testng:testng:7.3.0'
     implementation 'org.seleniumhq.selenium:selenium-java:4.7.2'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-remote-driver', version: '3.141.59'
 }
