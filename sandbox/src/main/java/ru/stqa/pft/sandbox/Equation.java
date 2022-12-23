@@ -22,7 +22,7 @@ public class Equation {
             } else {
                 n = 0;
             }
-            
+
         } else if (b != 0) {
             n = 1;
 
