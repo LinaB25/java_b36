@@ -51,4 +51,14 @@ public class ContactHelper extends HelperBase {
     public void acceptAlert() {
         wd.switchTo().alert().accept();
     }
+
+    public void createAndFillNewContact(ContactData contact) {
+        createContact();
+        fillContactForm(new ContactData("Natasha", "Ivanova", "Moscow", "89745684411", "test@testmail.ru", "test1"), true);
+        submit();
+    }
+
+    public boolean isThereAContact() {
+        return isElementPresented(By.name("selected[]"));
+    }
 }
