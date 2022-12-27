@@ -61,4 +61,9 @@ public class ContactHelper extends HelperBase {
     public boolean isThereAContact() {
         return isElementPresented(By.name("selected[]"));
     }
+
+    public boolean isThereAGroupToSelect() {
+        click((By.name("new_group")));
+        return isElementPresented((By.name("test1")));
+    }
 }
