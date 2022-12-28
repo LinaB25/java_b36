@@ -66,7 +66,6 @@ public class ContactHelper extends HelperBase {
     public boolean isThereAGroupToSelect() {
         try {
             Select group = new Select(wd.findElement(By.name("new_group")));
-            click((By.name("new_group")));
             group.selectByVisibleText("test1");
             return true;
         } catch (NoSuchElementException ex) {
