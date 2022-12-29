@@ -8,7 +8,6 @@ public class ContactCreationTests extends TestBase {
 
     @Test
     public void testNewContact() {
-        app.getContactHelper().createContact();
         if(!app.getContactHelper().isThereAGroupToSelect()){
             app.getNavigationHelper().gotoPageGroup();
             app.getGroupHelper().createGroup(new GroupData("test1", null, null));

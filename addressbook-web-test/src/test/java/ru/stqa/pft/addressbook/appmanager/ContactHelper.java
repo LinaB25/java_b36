@@ -64,6 +64,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public boolean isThereAGroupToSelect() {
+        createContact();
         try {
             Select group = new Select(wd.findElement(By.name("new_group")));
             group.selectByVisibleText("test1");
