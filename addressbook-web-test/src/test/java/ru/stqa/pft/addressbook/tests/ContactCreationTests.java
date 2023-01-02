@@ -8,13 +8,14 @@ public class ContactCreationTests extends TestBase {
 
     @Test
     public void testNewContact() {
-        if(!app.getContactHelper().isThereAGroupToSelect()){
+        String group = "test1";
+        if(!app.getContactHelper().isThereAGroupToSelectWithName(group)){
             app.getNavigationHelper().gotoPageGroup();
-            app.getGroupHelper().createGroup(new GroupData("test1", null, null));
+            app.getGroupHelper().createGroup(new GroupData(group, null, null));
             app.getContactHelper().createContact();
         }
         app.getContactHelper().createContact();
-        app.getContactHelper().fillContactForm(new ContactData("Natasha", "Ivanova", "Moscow", "89745684411", "test@testmail.ru", "test1"), true);
+        app.getContactHelper().fillContactForm(new ContactData("Natasha", "Ivanova", "Moscow", "89745684411", "test@testmail.ru", group), true);
         app.getContactHelper().submit();
     }
 }

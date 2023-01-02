@@ -63,11 +63,11 @@ public class ContactHelper extends HelperBase {
         return isElementPresented(By.name("selected[]"));
     }
 
-    public boolean isThereAGroupToSelect() {
+    public boolean isThereAGroupToSelectWithName(String groupToFind) {
         createContact();
         try {
             Select group = new Select(wd.findElement(By.name("new_group")));
-            group.selectByVisibleText("test1");
+            group.selectByVisibleText(groupToFind);
             return true;
         } catch (NoSuchElementException ex) {
             return false;
