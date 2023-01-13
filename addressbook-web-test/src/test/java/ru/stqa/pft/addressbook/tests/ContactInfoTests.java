@@ -39,16 +39,14 @@ public class ContactInfoTests extends TestBase {
     }
 
     private String mergePhones(ContactData contact) {
-        return Arrays.asList(contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone())
+        return Arrays.asList(contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone(), contact.getPhone2())
                 .stream().filter((s) -> ! s.equals(""))
                 .map(ContactInfoTests::cleaned)
                 .collect(Collectors.joining("\n"));
     }
     private String mergeEmails(ContactData contact) {
         return Arrays.asList(contact.getEmail(), contact.getEmail2(), contact.getEmail3())
-                .stream().filter((s) -> !s.equals(""))
-                .map(ContactInfoTests::cleaned)
-                .collect(Collectors.joining("\n"));
+                .stream().filter((s) -> !s.equals("")).collect(Collectors.joining("\n"));
     }
     
     public static String cleaned(String phone) {
