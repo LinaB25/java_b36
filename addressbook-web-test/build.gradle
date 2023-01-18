@@ -5,7 +5,7 @@ repositories {
     mavenCentral()
 }
 
-dependencies{
+dependencies {
     implementation 'org.testng:testng:7.3.0'
     implementation 'org.seleniumhq.selenium:selenium-java:4.7.2'
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-remote-driver', version: '3.141.59'
@@ -13,4 +13,16 @@ dependencies{
     implementation group: 'com.beust', name: 'jcommander', version: '1.78'
     implementation group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.4.19'
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.9.0'
+}
+
+task testGroups(type: Test) {
+    useTestNG(){
+        suites 'src/test/resources/testng-groups.xml'
+    }
+}
+
+task testContacts(type: Test) {
+    useTestNG(){
+        suites 'src/test/resources/testng-contacts.xml'
+    }
 }
