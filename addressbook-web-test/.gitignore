@@ -1,6 +1,6 @@
+# Default ignored files
 .gradle
 build/
-
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -14,10 +14,9 @@ gradle-app.setting
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
 *.log
-./.idea/workspace.xml
+.idea/workspace.xml
 .idea/gradle.xml
 .idea/gradle.xml
 *.xml
 .idea/gradle.xml
 .idea/gradle.xml
-sandbox/.idea/modules
