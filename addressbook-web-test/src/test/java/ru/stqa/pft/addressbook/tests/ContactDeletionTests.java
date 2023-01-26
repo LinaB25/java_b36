@@ -15,8 +15,8 @@ public class ContactDeletionTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
         String group = "test1";
-        if (app.contact().all().size() == 0) {
-            if (!app.contact().isThereAGroupToSelectWithName(group)) {
+        if (app.db().contacts().size() == 0) {
+            if (app.db().groupWithName(group) == null) {
                 app.goTo().groupPage();
                 app.group().create(new GroupData().withName(group));
             }
@@ -28,11 +28,11 @@ public class ContactDeletionTests extends TestBase {
     @Test
     public void testContactDeletion() {
         app.goTo().homePage();
-        Contacts before = app.contact().all();
+        Contacts before = app.db().contacts();
         ContactData deletedContact = before.iterator().next();
         app.contact().delete(deletedContact);
         app.goTo().home();
-        Contacts after = app.contact().all();
+        Contacts after = app.db().contacts();
         Assert.assertEquals(after.size(), before.size() - 1);
 
         assertThat(after, equalTo(before.without(deletedContact)));
