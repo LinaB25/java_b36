@@ -48,8 +48,8 @@ public class GroupData {
         return footer;
     }
 
-    public Set<ContactData> getContacts() { //TODO сделать преобразование как в COnatctData
-        return contacts;
+    public Contacts getContacts() {
+        return new Contacts(contacts);
     }
 
     public GroupData withId(int id) {

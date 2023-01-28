@@ -21,7 +21,7 @@ public class ContactModificationTests extends TestBase {
                 app.group().create(new GroupData().withName(group));
             }
             app.contact().createAndFill(new ContactData().withFirstName("Natasha").withLastName("Ivanova")
-            );//   .withAddress("Moscow").withMobilePhone("89745684411").withEmail("test@testmail.ru").withGroup(group)); TODO
+               .withAddress("Moscow").withMobilePhone("89745684411").withEmail("test@testmail.ru"));
         }
     }
 
