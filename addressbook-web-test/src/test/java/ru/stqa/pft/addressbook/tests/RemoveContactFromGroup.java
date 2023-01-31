@@ -11,7 +11,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class RemoveContactFromGroup extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
-        if (app.group().all().size() == 0) {
+        if (app.db().groups().size() == 0) {
             app.goTo().groupPage();
             app.group().create(new GroupData().withName("test1"));
         }
@@ -23,13 +23,12 @@ public class RemoveContactFromGroup extends TestBase {
                     .withAddress("Moscow").withMobilePhone("89745684411").withEmail("test@testmail.ru").inGroup(groupToAdd));
         }
         app.goTo().home();
-       for (ContactData contact : contacts) {
+        for (ContactData contact : contacts) {
             if (contact.getGroups().size() == 0) {
-                break;
+                app.contact().create(new ContactData().withFirstName("Natasha").withLastName("Ivanova")
+                        .withAddress("Moscow").withMobilePhone("89745684411").withEmail("test@testmail.ru")
+                        .inGroup(app.group().all().iterator().next()));
             }
-            app.contact().create(new ContactData().withFirstName("Natasha").withLastName("Ivanova")
-                    .withAddress("Moscow").withMobilePhone("89745684411").withEmail("test@testmail.ru")
-                    .inGroup(app.group().all().iterator().next()));
         }
     }
 
