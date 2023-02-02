@@ -34,7 +34,7 @@ public class HttpSession {
         post.setEntity(new UrlEncodedFormEntity(params));
         CloseableHttpResponse response = httpClient.execute(post);
         String body = getTextForm(response);
-        return body.contains(String.format("<span class=\"label hidden-xs label-default arrowed\">%s</span>", username));
+        return body.contains(String.format("<span id=\"logged-in-user\">%s</span>", username));
     }
 
     private String getTextForm(CloseableHttpResponse response) throws IOException {
@@ -49,7 +49,7 @@ public class HttpSession {
         HttpGet get = new HttpGet(app.getProperty("web.baseUrl") + "/index.php");
         CloseableHttpResponse response = httpClient.execute(get);
         String body = getTextForm(response);
-        return body.contains(String.format("<span class=\"label hidden-xs label-default arrowed\">%s</span>", username));
+        return body.contains(String.format("<span id=\"logged-in-user\">%s</span>", username));
     }
 
 }
