@@ -19,7 +19,9 @@ public class ApplicationManager {
     private WebDriver wd;
     private String browser;
     private RegistrationHelper registrationHelper;
-   private FTPHelper ftp;
+    private FTPHelper ftp;
+    private MailHelper mailHelper;
+    private JamesHelper jamesHelper;
 
     public ApplicationManager(String browser) throws IOException {
         this.browser = browser;
@@ -52,11 +54,13 @@ public class ApplicationManager {
         return registrationHelper;
     }
 
-    public FTPHelper ftp(){
-        if(ftp == null){
+    public FTPHelper ftp() {
+        if (ftp == null) {
             ftp = new FTPHelper(this);
-        } return ftp;
+        }
+        return ftp;
     }
+
     public WebDriver getDriver() {
         if (wd == null) {
             if (Objects.equals(browser, Browser.FIREFOX.browserName())) {
@@ -70,5 +74,19 @@ public class ApplicationManager {
             wd.get(properties.getProperty("web.baseUrl"));
         }
         return wd;
+    }
+
+    public MailHelper mail() {
+        if (mailHelper == null) {
+            mailHelper = new MailHelper(this);
+        }
+        return mailHelper;
+    }
+
+    public JamesHelper james(){
+        if (jamesHelper == null) {
+            jamesHelper = new JamesHelper(this);
+        }
+        return jamesHelper;
     }
 }
