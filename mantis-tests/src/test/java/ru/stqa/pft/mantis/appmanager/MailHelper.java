@@ -16,7 +16,7 @@ public class MailHelper {
 
     public MailHelper(ApplicationManager app) {
         this.app = app;
-        wiser = new Wiser();
+        wiser = new Wiser(); //почтовый сервер
     }
 
     public List<MailMessage> waitForMail(int count, long timeout) {

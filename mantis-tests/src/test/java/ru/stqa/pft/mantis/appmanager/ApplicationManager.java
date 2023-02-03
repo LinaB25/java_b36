@@ -22,6 +22,8 @@ public class ApplicationManager {
     private FTPHelper ftp;
     private MailHelper mailHelper;
     private JamesHelper jamesHelper;
+    private ChangePasswordHelper changePasswordHelper;
+
 
     public ApplicationManager(String browser) throws IOException {
         this.browser = browser;
@@ -49,16 +51,9 @@ public class ApplicationManager {
 
     public RegistrationHelper registration() {
         if (registrationHelper == null) {
-            return new RegistrationHelper(this);
+            registrationHelper = new RegistrationHelper(this);
         }
         return registrationHelper;
-    }
-
-    public FTPHelper ftp() {
-        if (ftp == null) {
-            ftp = new FTPHelper(this);
-        }
-        return ftp;
     }
 
     public WebDriver getDriver() {
@@ -76,17 +71,31 @@ public class ApplicationManager {
         return wd;
     }
 
+    public FTPHelper ftp() {
+        if (ftp == null) {
+            ftp = new FTPHelper(this);
+        }
+        return ftp;
+    }
+
     public MailHelper mail() {
         if (mailHelper == null) {
             mailHelper = new MailHelper(this);
         }
         return mailHelper;
     }
-
+/* //COMM
     public JamesHelper james(){
         if (jamesHelper == null) {
             jamesHelper = new JamesHelper(this);
         }
         return jamesHelper;
     }
+
+    public ChangePasswordHelper changePWhelper(){
+        if (changePasswordHelper == null) {
+            changePasswordHelper = new ChangePasswordHelper(this);
+        }
+        return changePasswordHelper;
+    }*/
 }
