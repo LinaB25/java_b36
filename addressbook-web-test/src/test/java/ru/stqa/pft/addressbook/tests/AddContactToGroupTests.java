@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class AddContactToGroupTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
-        if (app.db().contacts().size() == 0) {
+        if (contactToAddToGroup(app.db().contacts()) == null) {
             if (app.db().groups().size() == 0) {
                 app.goTo().groupPage();
                 app.group().create(new GroupData().withName("test1"));
@@ -29,21 +29,15 @@ public class AddContactToGroupTests extends TestBase {
     @Test
     public void addContactToGroup() {
         Contacts contacts = app.db().contacts();
-        ContactData selectedContact = contactToAddToGroup(contacts);
-        ContactData before = selectedContact;
-        if (selectedContact == null) {
-            app.goTo().groupPage();
-            app.group().create(new GroupData().withName("new group"));
-            selectedContact = contactToAddToGroup(contacts);
-            before = selectedContact;
-        }
+        ContactData selectedContact= contactToAddToGroup(contacts);
+        Groups  before = selectedContact.getGroups(); //группы контакта  ДО
         app.goTo().home();
         app.contact().selectContactById(selectedContact.getId());
         GroupData groupToAdd = groupWithoutContact();
-        app.contact().addContactToGroup(String.valueOf(groupToAdd.getId()));
-        ContactData after = selectedContact.inGroup(groupToAdd);
-        assertThat(after, equalTo(before));
-
+        app.contact().addContactToGroup(String.valueOf(groupToAdd.getId())); //добавление в группу
+        ContactData contactAddedToGroup = selectedContact.inGroup(groupToAdd);
+        Groups  after = selectedContact.getGroups(); //группы контакта ПОСЛЕ
+        assertThat(after, equalTo(before.withAdded(groupToAdd)));
     }
 
     public ContactData contactToAddToGroup(Contacts contacts) {

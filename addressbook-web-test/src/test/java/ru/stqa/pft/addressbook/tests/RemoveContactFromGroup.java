@@ -4,6 +4,7 @@ import org.testng.annotations.*;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -23,11 +24,10 @@ public class RemoveContactFromGroup extends TestBase {
                     .withAddress("Moscow").withMobilePhone("89745684411").withEmail("test@testmail.ru").inGroup(groupToAdd));
         }
         app.goTo().home();
-        for (ContactData contact : contacts) {
+       for (ContactData contact : contacts) {
             if (contact.getGroups().size() == 0) {
-                app.contact().create(new ContactData().withFirstName("Natasha").withLastName("Ivanova")
-                        .withAddress("Moscow").withMobilePhone("89745684411").withEmail("test@testmail.ru")
-                        .inGroup(app.group().all().iterator().next()));
+                app.contact().selectContactById(contact.getId());
+                app.contact().addContactToGroup(String.valueOf(groupToAdd.getId()));
             }
         }
     }
@@ -36,11 +36,12 @@ public class RemoveContactFromGroup extends TestBase {
     public void testContactRemoveGroup() {
         Contacts contacts = app.db().contacts();
         ContactData selectedContact = app.contact().contactInGroup(contacts);
-        ContactData before = selectedContact;
+        Groups before = selectedContact.getGroups(); //группы контакта  ДО
         GroupData selectedGroup = selectedGroup();
+        app.goTo().home();
         app.contact().selectGroup(selectedGroup.getName());
         app.contact().removeSelectedContactFromGroup(app.contact().contactInGroup(contacts));
-        ContactData after = before.inGroup(selectedGroup);
+        Groups  after = selectedContact.getGroups().withAdded(selectedGroup); //группы контакта ПОСЛЕ
         assertThat(after, equalTo(before));
     }
 
