@@ -39,7 +39,7 @@ public class JamesHelper {
 
     public void createUser(String name, String password) {
         initTelnetSession();
-        write("adduser" + name + " " + password);
+        write("adduser " + name + " " + password);
         String result = readUntil("User " + name + " added");
         closeTelnetSession();
     }
