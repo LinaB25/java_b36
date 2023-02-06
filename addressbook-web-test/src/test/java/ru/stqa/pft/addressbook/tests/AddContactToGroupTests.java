@@ -29,15 +29,25 @@ public class AddContactToGroupTests extends TestBase {
     @Test
     public void addContactToGroup() {
         Contacts contacts = app.db().contacts();
-        ContactData selectedContact= contactToAddToGroup(contacts);
-        Groups  before = selectedContact.getGroups(); //группы контакта  ДО
+        ContactData selectedContact = contactToAddToGroup(contacts);
+        GroupData groupToAdd = groupWithoutContact();//группа в которую добавить
+
+        Groups contactGroupsBefore = selectedContact.getGroups(); //группы контакта  ДО
+        Contacts groupContactsBefore = groupToAdd.getContacts();//контакты в группе ДО
+
+
         app.goTo().home();
         app.contact().selectContactById(selectedContact.getId());
-        GroupData groupToAdd = groupWithoutContact();
-        app.contact().addContactToGroup(String.valueOf(groupToAdd.getId())); //добавление в группу
-        ContactData contactAddedToGroup = selectedContact.inGroup(groupToAdd);
-        Groups  after = selectedContact.getGroups(); //группы контакта ПОСЛЕ
-        assertThat(after, equalTo(before.withAdded(groupToAdd)));
+        app.contact().addContactToGroup(String.valueOf(groupToAdd.getId()));
+
+        ContactData selectedContactAfter = app.db().contactById(selectedContact.getId());
+        GroupData groupToAddAfter = app.db().getGroupById(groupToAdd.getId()); //группа после добавления в нее
+
+        Groups contactGroupsAfter = selectedContactAfter.getGroups(); //группы контакта ПОСЛЕ
+        Contacts groupContactsAfter =groupToAddAfter.getContacts(); //контакты в группе ПОСЛЕ
+
+        assertThat(contactGroupsAfter, equalTo(contactGroupsBefore.withAdded(groupToAdd)));
+        assertThat(groupContactsAfter, equalTo(groupContactsBefore.withAdded(selectedContactAfter)));
     }
 
     public ContactData contactToAddToGroup(Contacts contacts) {

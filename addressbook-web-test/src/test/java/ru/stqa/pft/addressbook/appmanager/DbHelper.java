@@ -48,4 +48,24 @@ public class DbHelper {
         session.close();
         return new Groups(result);
     }
+
+    public ContactData contactById(int id) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        ContactData result = (ContactData) session.createQuery("from ContactData where id = '" + id + "'").getSingleResult();
+        System.out.println(result);
+        session.getTransaction().commit();
+        session.close();
+        return result;
+    }
+
+    public GroupData getGroupById(int id) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        GroupData result = (GroupData) session.createQuery("from GroupData where id = '" + id + "'").getSingleResult();
+        System.out.println(result);
+        session.getTransaction().commit();
+        session.close();
+        return result;
+    }
 }

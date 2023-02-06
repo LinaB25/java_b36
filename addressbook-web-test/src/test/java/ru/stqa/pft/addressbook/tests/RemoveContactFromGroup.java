@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook.tests;
 
 import org.testng.annotations.*;
+import org.w3c.dom.ls.LSOutput;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
@@ -36,13 +37,24 @@ public class RemoveContactFromGroup extends TestBase {
     public void testContactRemoveGroup() {
         Contacts contacts = app.db().contacts();
         ContactData selectedContact = app.contact().contactInGroup(contacts);
-        Groups before = selectedContact.getGroups(); //группы контакта  ДО
-        GroupData selectedGroup = selectedGroup();
+       // Groups before = selectedContact.getGroups(); //группы контакта  ДО
+        GroupData selectedGroup = selectedGroup(); //группа из которой удалить
+
+        Groups contactGroupsBefore = app.db().contactById(selectedContact.getId()).getGroups(); //группы контакта  ДО
+        Contacts groupContactsBefore = app.db().getGroupById(selectedGroup.getId()).getContacts();//контакты в группе ДО
+
         app.goTo().home();
         app.contact().selectGroup(selectedGroup.getName());
         app.contact().removeSelectedContactFromGroup(app.contact().contactInGroup(contacts));
-        Groups  after = selectedContact.getGroups().withAdded(selectedGroup); //группы контакта ПОСЛЕ
-        assertThat(after, equalTo(before));
+
+        ContactData selectedContactAfter = app.db().contactById(selectedContact.getId());
+        GroupData groupAfterRemove = app.db().getGroupById(selectedGroup.getId()); //группа после удаления
+
+        Groups contactGroupsAfter = selectedContactAfter.getGroups(); //группы контакта ПОСЛЕ
+        Contacts groupContactsAfter =groupAfterRemove.getContacts(); //контакты в группе ПОСЛЕ
+
+        assertThat(contactGroupsAfter, equalTo(contactGroupsBefore.without(selectedGroup)));
+        assertThat(groupContactsAfter, equalTo(groupContactsBefore.without(selectedContact)));
     }
 
     public GroupData selectedGroup() {
