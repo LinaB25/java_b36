@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.Set;
 
-public class RestAssuredTests {
+public class RestAssuredTests extends TestBase{
 
     @BeforeClass
     public void init(){
@@ -23,8 +23,9 @@ public class RestAssuredTests {
     }
     @Test
     public void testCreateIssue() throws IOException {
+        skipIfNotFixed(19);
         Set<Issue> oldIssues = getIssues();
-        Issue newIssue = new Issue().withSubject("Test").withDescription("New test");
+        Issue newIssue = new Issue().withSubject("Test issue").withDescription("New test issue");
         int issueId = createIssue(newIssue);
         Set<Issue> newIssues = getIssues();
         oldIssues.add(newIssue.withId(issueId));
