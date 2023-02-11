@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis-tests.main.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis-tests.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis-tests.test.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis-tests.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rest-sample.main.iml" filepath="$PROJECT_DIR$/.idea/modules/rest-sample.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rest-sample.test.iml" filepath="$PROJECT_DIR$/.idea/modules/rest-sample.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/soap-sample.main.iml" filepath="$PROJECT_DIR$/.idea/modules/soap-sample.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/soap-sample.test.iml" filepath="$PROJECT_DIR$/.idea/modules/soap-sample.test.iml" />
     </modules>

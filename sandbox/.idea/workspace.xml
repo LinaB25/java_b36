@@ -17,6 +17,9 @@
     <projectState path="$PROJECT_DIR$/../mantis-tests">
       <ProjectState />
     </projectState>
+    <projectState path="$PROJECT_DIR$/../rest-sample">
+      <ProjectState />
+    </projectState>
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
@@ -44,7 +47,7 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="soap-sample" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="soap-sample" type="2d1252cf:ModuleNode" />
               </path>
             </expand>
             <select />
@@ -79,7 +82,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/User/Documents/GitHub/java_b36/soap-sample/build.gradle",
+    "last_opened_file_path": "C:/Users/User/Documents/GitHub/java_b36/rest-sample/src/test/java/rest",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -88,29 +91,33 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="rest" />
       <recent name="ru.stqa.pft.mantis.appmanager" />
       <recent name="ru.stqa.pft.sandbox" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\GitHub\java_b36\rest-sample\src\test\java\rest" />
       <recent name="C:\Users\User\Documents\GitHub\java_b36\mantis-tests\src\test\resources\config" />
       <recent name="C:\Users\User\Documents\GitHub\java_b36\mantis-tests\src\test\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\GitHub\java_b36\rest-sample\src\test\java" />
       <recent name="C:\Users\User\Documents\GitHub\java_b36\mantis-tests\src\test\resources" />
       <recent name="C:\Users\User\Documents\GitHub\java_b36\mantis-tests\src\test\resources\config" />
       <recent name="C:\Users\User\Documents\GitHub\java_b36\addressbook-web-test" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="rest" />
       <recent name="ru.stqa.pft.addressbook.tests" />
       <recent name="ru.stqa.pft.mantis.tests" />
       <recent name="ru.stqa.pft.mantis.appmanager" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.GeoIpServiceTests.testMyIp">
-    <configuration name="GeoIpServiceTests.testMyIp" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="TestNG.RestTests.testCreateIssue">
+    <configuration name="RestTests.testCreateIssue" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/../soap-sample" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../rest-sample" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
@@ -120,7 +127,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ru.soap.GeoIpServiceTests.testMyIp&quot;" />
+            <option value="&quot;rest.RestTests.testCreateIssue&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -130,7 +137,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="AddContactToGroupTests.addContactToGroup" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ContactInfoTests.testContactInfo" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-test.test" />
       <extension name="coverage">
         <pattern>
@@ -139,8 +146,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ru.stqa.pft.addressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.tests.AddContactToGroupTests" />
-      <option name="METHOD_NAME" value="addContactToGroup" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.tests.ContactInfoTests" />
+      <option name="METHOD_NAME" value="testContactInfo" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -148,17 +155,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GeoIpServiceTests.testMyIp" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="soap-sample.test" />
+    <configuration name="RestTests.testCreateIssue" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="rest-sample.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.soap.*" />
+          <option name="PATTERN" value="rest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="ru.soap" />
-      <option name="MAIN_CLASS_NAME" value="ru.soap.GeoIpServiceTests" />
-      <option name="METHOD_NAME" value="testMyIp" />
+      <option name="PACKAGE_NAME" value="rest" />
+      <option name="MAIN_CLASS_NAME" value="rest.RestTests" />
+      <option name="METHOD_NAME" value="testCreateIssue" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -166,7 +173,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationTests.testRegistration" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="SoapTests.testCreateIssue" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="mantis-tests.test" />
       <extension name="coverage">
         <pattern>
@@ -175,8 +182,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ru.stqa.pft.mantis.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.mantis.tests.RegistrationTests" />
-      <option name="METHOD_NAME" value="testRegistration" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.mantis.tests.SoapTests" />
+      <option name="METHOD_NAME" value="testCreateIssue" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -184,17 +191,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RemoveContactFromGroup.testContactRemoveGroup" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-test.test" />
+    <configuration name="SoapTests.testGetProjects" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="mantis-tests.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.addressbook.tests.*" />
+          <option name="PATTERN" value="ru.stqa.pft.mantis.tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="ru.stqa.pft.addressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.tests.RemoveContactFromGroup" />
-      <option name="METHOD_NAME" value="testContactRemoveGroup" />
+      <option name="PACKAGE_NAME" value="ru.stqa.pft.mantis.tests" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.mantis.tests.SoapTests" />
+      <option name="METHOD_NAME" value="testGetProjects" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -203,19 +210,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.GeoIpServiceTests.testMyIp" />
-      <item itemvalue="TestNG.GeoIpServiceTests.testMyIp" />
-      <item itemvalue="TestNG.AddContactToGroupTests.addContactToGroup" />
-      <item itemvalue="TestNG.RemoveContactFromGroup.testContactRemoveGroup" />
-      <item itemvalue="TestNG.RegistrationTests.testRegistration" />
+      <item itemvalue="Gradle.RestTests.testCreateIssue" />
+      <item itemvalue="TestNG.ContactInfoTests.testContactInfo" />
+      <item itemvalue="TestNG.RestTests.testCreateIssue" />
+      <item itemvalue="TestNG.SoapTests.testCreateIssue" />
+      <item itemvalue="TestNG.SoapTests.testGetProjects" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.GeoIpServiceTests.testMyIp" />
-        <item itemvalue="Gradle.GeoIpServiceTests.testMyIp" />
-        <item itemvalue="TestNG.RemoveContactFromGroup.testContactRemoveGroup" />
-        <item itemvalue="TestNG.AddContactToGroupTests.addContactToGroup" />
-        <item itemvalue="TestNG.RegistrationTests.testRegistration" />
+        <item itemvalue="TestNG.RestTests.testCreateIssue" />
+        <item itemvalue="TestNG.ContactInfoTests.testContactInfo" />
+        <item itemvalue="Gradle.RestTests.testCreateIssue" />
+        <item itemvalue="TestNG.SoapTests.testCreateIssue" />
+        <item itemvalue="TestNG.SoapTests.testGetProjects" />
       </list>
     </recent_temporary>
   </component>
@@ -237,6 +244,16 @@
           <url>file://$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/JamesHelper.java</url>
           <line>150</line>
           <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../rest-sample/src/test/java/rest/RestTests.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../rest-sample/src/test/java/rest/RestTests.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="82" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
