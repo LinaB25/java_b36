@@ -6,11 +6,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.Browser;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -34,13 +37,20 @@ public class ApplicationManager {
         String target = System.getProperty("target", "local");
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
         dbHelper = new DbHelper();
-        if(Objects.equals(browser, Browser.FIREFOX.browserName())){
-            wd = new FirefoxDriver(new FirefoxOptions().setBinary("c:\\Program Files\\Mozilla Firefox\\firefox.exe"));
-        } else if (Objects.equals(browser, Browser.CHROME.browserName())){
-            wd = new ChromeDriver();
-        } else if (Objects.equals(browser, Browser.IE.browserName())){
-            wd = new InternetExplorerDriver();
+        if("".equals(properties.getProperty("selenium.server"))){
+            if(Objects.equals(browser, Browser.FIREFOX.browserName())){
+                wd = new FirefoxDriver(new FirefoxOptions().setBinary("c:\\Program Files\\Mozilla Firefox\\firefox.exe"));
+            } else if (Objects.equals(browser, Browser.CHROME.browserName())){
+                wd = new ChromeDriver();
+            } else if (Objects.equals(browser, Browser.IE.browserName())){
+                wd = new InternetExplorerDriver();
+            }
+        } else {
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setBrowserName(browser);
+            wd = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
         }
+
         wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         wd.get(properties.getProperty("web.baseUrl"));
         groupHelper = new GroupHelper(wd);
